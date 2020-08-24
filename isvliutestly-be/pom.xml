@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.yonyou.iuap</groupId>
+        <artifactId>ucf-parent</artifactId>
+        <version>1.0.2-RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yonyou.ucf</groupId>
+    <artifactId>isvliutestly</artifactId>
+    <packaging>pom</packaging>
+    <version>3.0-SNAPSHOT</version>
+    <modules>
+        <module>dev-isvliutestly-app</module>
+        <module>dev-isvliutestly-extend</module>
+        <module>dev-isvliutestly-bootstrap</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <ucf.version>1.0.6-SNAPSHOT</ucf.version>
+        <imeta.groupId>org.imeta</imeta.groupId>
+        <imeta.version>2.0.22.1-RELEASE</imeta.version>
+        <mdd.version>3.0.2-RELEASE</mdd.version>
+        <iuap-billcode.version>2.3.1-RELEASE</iuap-billcode.version>
+        <cglib.version>3.1</cglib.version>
+        <yonscript.version>3.0.3-RELEASE</yonscript.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.yonyoucloud.iuap</groupId>
+            <artifactId>ucf-mdd-starter-iuap-rule-isv</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyoucloud.iuap</groupId>
+            <artifactId>ucf-mdd-starter-iuap-api-ucg</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyoucloud.iuap</groupId>
+            <artifactId>ucf-mdd-starter-core</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyou.metadata</groupId>
+            <artifactId>metadata-api-unified-sdk</artifactId>
+            <version>0.0.21.1-RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.yonyou.iuap</groupId>
+                    <artifactId>iuap-generic</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.yonyou.iuap</groupId>
+                    <artifactId>iuap-log</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.59</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>1.59</version>
+        </dependency>
+
+        <!-- imeta -->
+        <dependency>
+            <groupId>${imeta.groupId}</groupId>
+            <artifactId>imeta-core</artifactId>
+            <version>${imeta.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${imeta.groupId}</groupId>
+            <artifactId>imeta-orm</artifactId>
+            <version>${imeta.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${imeta.groupId}</groupId>
+            <artifactId>imeta-biz</artifactId>
+            <version>${imeta.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${imeta.groupId}</groupId>
+            <artifactId>imeta-spring</artifactId>
+            <version>${imeta.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${imeta.groupId}</groupId>
+            <artifactId>imeta-spring-support</artifactId>
+            <version>${imeta.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>HikariCP-java6</artifactId>
+                    <groupId>com.zaxxer</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.curator</groupId>
+                    <artifactId>curator-framework</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>${imeta.groupId}</groupId>
+            <artifactId>imeta-tpl</artifactId>
+            <version>${imeta.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${imeta.groupId}</groupId>
+            <artifactId>imeta-io</artifactId>
+            <version>${imeta.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.14</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- mdd -->
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-dao</artifactId>
+            <version>${mdd.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.yonyou.cloud</groupId>
+                    <artifactId>auth-sdk-client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-bpm</artifactId>
+            <version>${mdd.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.yonyou.cloud</groupId>
+                    <artifactId>auth-sdk-client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-option</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-ref</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-common</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-core</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-api</artifactId>
+            <version>${mdd.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba</groupId>
+                    <artifactId>dubbo</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-rule-sdk</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-uimeta-sdk</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-default-rules</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-enum</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-imeta-extension</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-print</artifactId>
+            <version>${mdd.version}</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.yonyou</groupId>-->
+        <!--            <artifactId>mdd-poi</artifactId>-->
+        <!--            <version>${mdd.version}</version>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-isv</artifactId>
+            <version>3.0.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyou.iuap</groupId>
+            <artifactId>iuap-billcode-mdd</artifactId>
+            <version>${iuap-billcode.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyou.common</groupId>
+            <artifactId>bizFlow-runtime-sdk</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- compiler插件, 设定JDK版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
